@@ -1,1 +1,1 @@
-# Luckify
+# Luckify deneme
