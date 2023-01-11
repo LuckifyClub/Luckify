@@ -1,6 +1,6 @@
 # Luckify App (luckify)
 
-Luckify Club Test
+Luckify Club Test test2
 
 ## Install the dependencies
 ```bash
