@@ -47,8 +47,8 @@ module.exports = function (/* ctx */) {
 
       distDir: 'docs',
 
-      appBase: 'Luckify',
-      publicPath: 'Luckify',
+      // appBase: 'Luckify',
+      // publicPath: 'Luckify',
 
       // transpile: false,
 
