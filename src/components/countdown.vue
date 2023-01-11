@@ -29,7 +29,7 @@
 export default {
   data() {
     return {
-      endDate: '2023-01-15 20:00:00', // fixed date to countdown to in UTC time
+      endDate: '2023-02-01 20:00:00', // fixed date to countdown to in UTC time
       days: 0,
       hours: 0,
       minutes: 0,
