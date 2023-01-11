@@ -50,6 +50,8 @@ module.exports = function (/* ctx */) {
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
+      distDir: 'docs',
+
       // transpile: false,
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
