@@ -59,10 +59,10 @@
               <div>For the first draw</div>
               <div class="q-px-xl q-mx-xl column flex-center full-width">
                 <div class="flex justify-between full-width q-px-xl q-mx-xl bg-secondary rounded-borders q-mb-sm">
-                  <b class="q-pr-sm">Participation fee:</b> 0.1 ETH (~ $120)
+                  <b class="q-pr-sm">Participation fee:</b> <span>0.1 ETH (~ $140)</span>
                 </div>
                 <div class="flex justify-between full-width q-px-xl q-mx-xl bg-secondary rounded-borders">
-                  <b class="q-pr-sm">Number of tickets:</b> 10000
+                  <b class="q-pr-sm">Number of tickets:</b> <span>10,000</span>
                 </div>
               </div>
               <div class="text-body1">You can buy an unlimited number of tickets.</div>
@@ -74,22 +74,23 @@
                 <div class="text-h3 text-white">#2</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="text-h2 q-ma-none q-pa-none text-bold text-white">150 ETH</div>
-                <div class="text-body q-ma-none q-pa-none text-bold text-white">~$180.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$210.000</div>
               </div>
               <div class="column flex-center rounded-borders bg-luck q-px-md q-py-xl q-ma-sm">
                 <div class="text-h3 text-white">#1</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="text-h2 q-ma-none q-pa-none text-bold text-white">250 ETH</div>
-                <div class="text-body q-ma-none q-pa-none text-bold text-white">~$300.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$350.000</div>
               </div>
               <div class="column flex-center rounded-borders bg-luck q-px-md q-py-xs q-ma-sm">
                 <div class="text-h3 text-white">#3</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="text-h2 q-ma-none q-pa-none text-bold text-white">100 ETH</div>
-                <div class="text-body q-ma-none q-pa-none text-bold text-white">~$120.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$140.000</div>
               </div>
 
             </div>
+            <div class="extra text-center bg-primary text-white q-pa-md text-body2 rounded-borders q-mb-md">In addition, <b>200 participants</b> will receive prizes worth 0.75 ETH (~$1000).</div>
             <div class="text-center">* Prizes will be awarded in percentage of tickets sold. The prizes shown are only eligible if all tickets are sold.</div>
           </div>
         </div>
