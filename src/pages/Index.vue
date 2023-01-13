@@ -8,7 +8,7 @@
 
         <div class="centrik z-max column items-center">
           <h1 class="flex no-wrap q-mx-xl fold">
-            <div class="text-h1 fan text-bold text-no-wrap text-primary">Luckify is</div>
+            <div class="text-h1 fan text-bold text-no-wrap text-primary" >Luckify is</div>
             <div class="text-h5 q-pa-md text-black">a platform that elevates the traditional lotto experience with its reliable
               onchain
               technology and with a bonus that's practically <span class="fan text-h3">unbeatable</span>, it's no wonder we're
@@ -68,7 +68,7 @@
               <div class="text-body1">You can buy an unlimited number of tickets.</div>
             </div>
             <h3 class="q-pa-none q-ma-none text-center">Prizes*</h3>
-            <div class="prizes flex flex-center q-mb-xl">
+            <div class="prizes flex flex-center q-mb-sm">
 
               <div class="column flex-center rounded-borders bg-luck q-px-md q-py-md q-ma-sm">
                 <div class="text-h3 text-white">#2</div>
