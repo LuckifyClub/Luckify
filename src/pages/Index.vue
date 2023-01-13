@@ -8,7 +8,7 @@
 
         <div class="centrik z-max column items-center">
           <h1 class="flex no-wrap q-mx-xl fold">
-            <div class="text-h1 fan text-bold text-no-wrap text-primary">Luckify is</div>
+            <div class="text-h1 fan text-bold text-no-wrap text-primary" >Luckify is</div>
             <div class="text-h5 q-pa-md text-black">a platform that elevates the traditional lotto experience with its reliable
               onchain
               technology and with a bonus that's practically <span class="fan text-h3">unbeatable</span>, it's no wonder we're
@@ -18,7 +18,7 @@
 
           <h2 class="fan text-h1 q-pa-none q-ma-none">When do we start to win?</h2>
           <div class="text-black">
-            <p class="text-black text-center"><strong>Ticket on-sale date:</strong> January 15, 2023 20:00:00 UTC</p>
+            <p class="text-black text-center"><strong>Ticket on-sale date:</strong> February 01, 2023 20:00:00 UTC</p>
             <p class="text-black text-center">The first draw will take place <b>one week</b> after the sale starts.</p>
           </div>
           <countdown />
@@ -59,37 +59,38 @@
               <div>For the first draw</div>
               <div class="q-px-xl q-mx-xl column flex-center full-width">
                 <div class="flex justify-between full-width q-px-xl q-mx-xl bg-secondary rounded-borders q-mb-sm">
-                  <b class="q-pr-sm">Participation fee:</b> 0.1 ETH (~ $120)
+                  <b class="q-pr-sm">Participation fee:</b> <span>0.1 ETH (~ $140)</span>
                 </div>
                 <div class="flex justify-between full-width q-px-xl q-mx-xl bg-secondary rounded-borders">
-                  <b class="q-pr-sm">Number of tickets:</b> 10000
+                  <b class="q-pr-sm">Number of tickets:</b> <span>10,000</span>
                 </div>
               </div>
               <div class="text-body1">You can buy an unlimited number of tickets.</div>
             </div>
             <h3 class="q-pa-none q-ma-none text-center">Prizes*</h3>
-            <div class="prizes flex flex-center q-mb-xl">
+            <div class="prizes flex flex-center q-mb-sm">
 
               <div class="column flex-center rounded-borders bg-luck q-px-md q-py-md q-ma-sm">
                 <div class="text-h3 text-white">#2</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="text-h2 q-ma-none q-pa-none text-bold text-white">150 ETH</div>
-                <div class="text-body q-ma-none q-pa-none text-bold text-white">~$180.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$210.000</div>
               </div>
               <div class="column flex-center rounded-borders bg-luck q-px-md q-py-xl q-ma-sm">
                 <div class="text-h3 text-white">#1</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="text-h2 q-ma-none q-pa-none text-bold text-white">250 ETH</div>
-                <div class="text-body q-ma-none q-pa-none text-bold text-white">~$300.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$350.000</div>
               </div>
               <div class="column flex-center rounded-borders bg-luck q-px-md q-py-xs q-ma-sm">
                 <div class="text-h3 text-white">#3</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="text-h2 q-ma-none q-pa-none text-bold text-white">100 ETH</div>
-                <div class="text-body q-ma-none q-pa-none text-bold text-white">~$120.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$140.000</div>
               </div>
 
             </div>
+            <div class="extra text-center bg-primary text-white q-pa-md text-body2 rounded-borders q-mb-md">In addition, <b>200 participants</b> will receive prizes worth 0.75 ETH (~$1000).</div>
             <div class="text-center">* Prizes will be awarded in percentage of tickets sold. The prizes shown are only eligible if all tickets are sold.</div>
           </div>
         </div>
