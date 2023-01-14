@@ -1,16 +1,16 @@
 <template>
     <div class="flex mono text-primary non-selectable">
         <div class="box q-ma-sm q-pa-md column items-center ">
-            <div class="text-h1">{{ days.toString().padStart(2, '0')  }} </div>   <div class="desc">days</div>
+            <div :class="od('text-h1')+om('text-h3')">{{ days.toString().padStart(2, '0')  }} </div>   <div class="desc">days</div>
         </div>
         <div class="box q-ma-sm q-pa-md column items-center ">
-            <div class="text-h1">{{ hours.toString().padStart(2, '0')  }} </div>  <div class="desc">hours</div>
+            <div :class="od('text-h1')+om('text-h3')">{{ hours.toString().padStart(2, '0')  }} </div>  <div class="desc">hours</div>
         </div>
         <div class="box q-ma-sm q-pa-md column items-center ">
-            <div class="text-h1">{{ minutes.toString().padStart(2, '0')  }}</div> <div class="desc">minutes</div>
+            <div :class="od('text-h1')+om('text-h3')">{{ minutes.toString().padStart(2, '0')  }}</div> <div class="desc">minutes</div>
         </div>
         <div class="box q-ma-sm q-pa-md column items-center ">
-            <div class="text-h1">{{ seconds.toString().padStart(2, '0')  }}</div> <div class="desc">seconds</div>
+            <div :class="od('text-h1')+om('text-h3')">{{ seconds.toString().padStart(2, '0')  }}</div> <div class="desc">seconds</div>
         </div>
     </div>
 </template>
