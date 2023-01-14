@@ -1,8 +1,12 @@
 <template>
   <q-page class="luckpad column items-center" :class="om('full-width')">
     <div id="app" ref="container" class="flex justify-center full-width">
-      <q-btn v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
-      <q-btn v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
+      <div v-if="web3">
+        <q-btn v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
+        <q-btn v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
+      </div>
+      <div class="bg-red">No web3 detected</div>
+
       <div class="container column full-width items-center q-mt-lg">
         <img alt="luckify logo" src="~assets/luckify-logo.svg" class="logoimg z-max q-my-xl" @click="CONNECT_CLICK" />
         <img alt="luckify logo" src="~assets/green-bg.svg" class="logobg absolute" />
@@ -171,6 +175,7 @@ export default {
 
   data() {
     return {
+      web3: false,
       provider: null,
       account: null,
       balance: null,
@@ -178,15 +183,19 @@ export default {
   },
 
   async created() {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    this.provider = provider;
-    const accounts = await this.provider.listAccounts();
-    this.$env.console.log('accounts:', accounts);
-    await this.SET_ACCOUNT(accounts);
-    // setTimeout(async () => {
-    //   const provider = new ethers.providers.Web3Provider(window.ethereum);
-    //   this.provider = provider;
-    // }, 1500);
+    if (window?.ethereum) {
+      this.web3 = true;
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      this.provider = provider;
+      const accounts = await this.provider.listAccounts();
+      this.$env.console.log('accounts:', accounts);
+      await this.SET_ACCOUNT(accounts);
+      // setTimeout(async () => {
+      //   const provider = new ethers.providers.Web3Provider(window.ethereum);
+      //   this.provider = provider;
+      // }, 1500);
+    } else {
+    }
   },
 
   methods: {
