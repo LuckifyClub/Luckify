@@ -2,7 +2,7 @@
   <q-page class="luckpad column items-center" :class="om('full-width')">
     <div id="app" ref="container" class="flex justify-center full-width">
       <q-btn v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
-      <q-btn v-if="account">{{ account }}</q-btn>
+      <q-btn v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
       <div class="container column full-width items-center q-mt-lg">
         <img alt="luckify logo" src="~assets/luckify-logo.svg" class="logoimg z-max q-my-xl" @click="CONNECT_CLICK" />
         <img alt="luckify logo" src="~assets/green-bg.svg" class="logobg absolute" />
@@ -190,8 +190,8 @@ export default {
     async CONNECT_CLICK() {
       this.$env.console.log('CONNECT_CLICK');
       try {
-        // const accounts = await this.provider.send('eth_requestAccounts', []);
-        const accounts = await this.provider.listAccounts();
+        const accounts = await this.provider.send('eth_requestAccounts', []);
+        // const accounts = await this.provider.listAccounts(); // Bunu kullanma (direk window acmiyor)
         if (accounts && accounts.length > 0) {
           const account = accounts[0];
           this.$env.console.log('Accouts:', accounts);

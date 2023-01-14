@@ -13,6 +13,10 @@ export default async ({ Vue /* app, router, Vue, ... */ }) => {
     },
 
     methods: {
+      maskWalletAddress(address) {
+        return `${address.substring(0, 6)}...${address.substring(address.length - 4, address.length)}`;
+      },
+
       od(val) {
         return this.$q.platform.is.desktop ? ` ${val} ` : ' ';
       },
