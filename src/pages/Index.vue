@@ -5,7 +5,7 @@
         <q-btn v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
         <q-btn v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
       </div>
-      <div class="bg-red">No web3 detected</div>
+      <div v-else class="bg-red">No web3 detected</div>
 
       <div class="container column full-width items-center q-mt-lg">
         <img alt="luckify logo" src="~assets/luckify-logo.svg" class="logoimg z-max q-my-xl" @click="CONNECT_CLICK" />
