@@ -5,7 +5,7 @@
         <q-btn v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
         <q-btn v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
       </div>
-      <div v-else class="bg-red">No web3 detected</div>
+      <div v-else class="bg-red">No web3 detected. Please install https://metamask.io/</div>
 
       <div class="container column full-width items-center q-mt-lg">
         <img alt="luckify logo" src="~assets/luckify-logo.svg" class="logoimg z-max q-my-xl" @click="CONNECT_CLICK" />
@@ -154,6 +154,8 @@
 </template>
 
 <script>
+const { ethereum } = typeof window !== 'undefined' && window;
+
 import { ethers } from 'ethers';
 import { dialog } from 'src/misc/dialog';
 import Artifact from 'src/contracts/Lottery.json';
@@ -182,10 +184,42 @@ export default {
     };
   },
 
+  watch: {
+    provider: {
+      immediate: true,
+
+      handler(n) {
+        if (n) {
+          this.$env.console.log('[Provider is set]:', n);
+
+          ethereum.on('accountsChanged', async () => {
+            this.$env.console.log('[WALLET]: accountsChanged');
+            const accounts = await n.listAccounts();
+            this.$env.console.log(accounts);
+            this.SET_ACCOUNT(accounts);
+          });
+
+          // n.on('disconnect', () => {
+          //   this.$env.console.log('[WALLET]: Disconnected');
+          // });
+
+          // n.on('accountsChanged', () => {
+          //   this.$env.console.log('[WALLET]: accountsChanged');
+          // });
+        }
+      },
+    },
+  },
+
   async created() {
     if (window?.ethereum) {
+      // ethereum.on('disconnect', () => {
+      //   this.$env.console.log('[WALLET]: Disconnected');
+      // });
+
       this.web3 = true;
       const provider = new ethers.providers.Web3Provider(window.ethereum);
+
       this.provider = provider;
       const accounts = await this.provider.listAccounts();
       this.$env.console.log('accounts:', accounts);
@@ -195,6 +229,7 @@ export default {
       //   this.provider = provider;
       // }, 1500);
     } else {
+      this.$env.console.error('No web3 detected');
     }
   },
 
@@ -228,6 +263,7 @@ export default {
         this.$env.console.log('chainId:', chainId);
       } else {
         this.$env.console.log('user not connected');
+        this.account = null;
       }
     },
 
