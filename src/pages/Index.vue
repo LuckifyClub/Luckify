@@ -177,9 +177,12 @@ export default {
     };
   },
 
-  created() {
+  async created() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     this.provider = provider;
+    const accounts = await this.provider.listAccounts();
+    this.$env.console.log('accounts:', accounts);
+    await this.SET_ACCOUNT(accounts);
     // setTimeout(async () => {
     //   const provider = new ethers.providers.Web3Provider(window.ethereum);
     //   this.provider = provider;
@@ -192,28 +195,33 @@ export default {
       try {
         const accounts = await this.provider.send('eth_requestAccounts', []);
         // const accounts = await this.provider.listAccounts(); // Bunu kullanma (direk window acmiyor)
-        if (accounts && accounts.length > 0) {
-          const account = accounts[0];
-          this.$env.console.log('Accouts:', accounts);
-          this.$env.console.log('Accout:', account);
-          this.account = account;
-          // const balance = await this.provider.getBalance('ethers.eth');
-          const balance = await this.provider.getBalance(account);
-          this.$env.console.log('Balance:', balance);
-          this.$env.console.log('Balance:', ethers.utils.formatEther(balance));
-          this.balance = ethers.utils.formatEther(balance);
-
-          const network = await this.provider.getNetwork();
-          const { chainId } = network;
-          this.$env.console.log('network:', network);
-          this.$env.console.log('chainId:', chainId);
-        } else {
-          this.$env.console.log('user not connected');
-        }
+        await this.SET_ACCOUNT(accounts);
       } catch (error) {
         this.$env.console.error(error);
       }
     },
+
+    async SET_ACCOUNT(accounts) {
+      if (accounts && accounts.length > 0) {
+        const account = accounts[0];
+        this.$env.console.log('Accouts:', accounts);
+        this.$env.console.log('Accout:', account);
+        this.account = account;
+        // const balance = await this.provider.getBalance('ethers.eth');
+        const balance = await this.provider.getBalance(account);
+        this.$env.console.log('Balance:', balance);
+        this.$env.console.log('Balance:', ethers.utils.formatEther(balance));
+        this.balance = ethers.utils.formatEther(balance);
+
+        const network = await this.provider.getNetwork();
+        const { chainId } = network;
+        this.$env.console.log('network:', network);
+        this.$env.console.log('chainId:', chainId);
+      } else {
+        this.$env.console.log('user not connected');
+      }
+    },
+
     async CALL_CONTRACT_READONLY() {
       this.$env.console.log('CALL_CONTRACT_READONLY');
 
