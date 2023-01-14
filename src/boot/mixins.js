@@ -1,3 +1,5 @@
+import env from 'src/misc/environment';
+
 export default async ({ Vue /* app, router, Vue, ... */ }) => {
   Vue.mixin({
     computed: {
