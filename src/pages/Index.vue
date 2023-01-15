@@ -201,6 +201,14 @@ export default {
             this.SET_ACCOUNT(accounts);
           });
 
+          ethereum.on('chainChanged', async () => {
+            this.$env.console.log('[WALLET]: chainChanged');
+            window.location.reload();
+            // const accounts = await n.listAccounts();
+            // this.$env.console.log(accounts);
+            // this.SET_ACCOUNT(accounts);
+          });
+
           // n.on('disconnect', () => {
           //   this.$env.console.log('[WALLET]: Disconnected');
           // });
@@ -249,6 +257,24 @@ export default {
 
     async GET_TICKET_CLICK() {
       this.$env.console.log('GET_TICKET_CLICK');
+
+      let network = await this.provider.getNetwork();
+      let { chainId, name } = network;
+
+      console.log('[NERWORK]:', chainId, name);
+
+      if (name !== 'goerli') {
+        try {
+          await this.SWITCH_NETWORK();
+          // const accounts = await this.provider.send('eth_requestAccounts', []);
+          // await this.SET_ACCOUNT(accounts);
+          // network = await this.provider.getNetwork();
+          // ({ chainId, name } = network);
+        } catch (error) {
+          return new Error(error);
+        }
+      }
+
       const signer = this.provider.getSigner();
       this.signer = signer;
       try {
@@ -263,10 +289,12 @@ export default {
           dialog({ message: 'Congrats!!! You have a ticket!!!', type: 'success' });
         } catch (error) {
           dialog({ message: error.message, type: 'error' });
+          return new Error(error);
         }
       } catch (error) {
         // this.$env.console.error(error);
         // dialog({ message: error.message, type: 'error' });
+        return new Error(error);
       }
     },
 
@@ -283,13 +311,61 @@ export default {
         this.balance = ethers.utils.formatEther(balance);
 
         const network = await this.provider.getNetwork();
-        const { chainId } = network;
+        const { chainId, name } = network;
         this.$env.console.log('network:', network);
         this.$env.console.log('chainId:', chainId);
+        // if (name !== 'goerli') {
+        //   await this.ADD_NETWORK();
+        // }
       } else {
         this.$env.console.log('user not connected');
         this.account = null;
       }
+    },
+
+    async SWITCH_NETWORK() {
+      this.$env.console.log('[SWITCH_NETWORK]:');
+      try {
+        await ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: '0x5' }],
+        });
+        this.$env.console.log('You have succefully switched to Goerli Test network');
+        return 'ok';
+      } catch (switchError) {
+        // This error code indicates that the chain has not been added to MetaMask.
+        if (switchError.code === 4902) {
+          this.$env.console.log('This network is not available in your metamask, please add it');
+        }
+        this.$env.console.log('Failed to switch to the network');
+        this.$env.console.error(switchError);
+        throw new Error(switchError);
+      }
+    },
+
+    async ADD_NETWORK() {
+      const my_chainId = '0x5';
+      const my_rpcURL = 'https://goerli.infura.io/v3/';
+      const my_networkName = 'Goerli test network';
+      const my_currencyName = 'GoerliETH';
+      const my_currencySymbol = 'GoerliETH';
+      const my_explorerURL = 'https://goerli.etherscan.io';
+      await window.ethereum.request({
+        method: 'wallet_addEthereumChain',
+        params: [
+          {
+            chainId: my_chainId,
+            chainName: my_networkName,
+            rpcUrls: [my_rpcURL],
+            blockExplorerUrls: [my_explorerURL],
+            nativeCurrency: {
+              name: my_currencyName,
+              symbol: my_currencySymbol, // 2-6 characters long
+              decimals: 18,
+            },
+          },
+        ],
+      });
     },
 
     async CALL_CONTRACT_READONLY() {
