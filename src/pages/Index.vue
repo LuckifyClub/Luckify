@@ -4,6 +4,7 @@
       <div v-if="web3">
         <q-btn v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
         <q-btn v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
+        <q-btn v-if="account" color="primary" @click="GET_TICKET_CLICK">Get Ticket</q-btn>
       </div>
       <div v-else class="bg-red">No web3 detected. Please install https://metamask.io/</div>
 
@@ -181,6 +182,7 @@ export default {
       provider: null,
       account: null,
       balance: null,
+      signer: null,
     };
   },
 
@@ -242,6 +244,29 @@ export default {
         await this.SET_ACCOUNT(accounts);
       } catch (error) {
         this.$env.console.error(error);
+      }
+    },
+
+    async GET_TICKET_CLICK() {
+      this.$env.console.log('GET_TICKET_CLICK');
+      const signer = this.provider.getSigner();
+      this.signer = signer;
+      try {
+        const contractAddress = '0x45d62c2a9aB9150D7627715e357bC08aee73Ef26';
+        const contract = new ethers.Contract(contractAddress, Artifact.abi, this.signer);
+        // Call payable function
+        const amount = ethers.utils.parseEther('0.00001');
+
+        try {
+          const tx = await contract.functions.enter({ value: amount });
+          await tx.wait();
+          dialog({ message: 'Congrats!!! You have a ticket!!!', type: 'success' });
+        } catch (error) {
+          dialog({ message: error.message, type: 'error' });
+        }
+      } catch (error) {
+        // this.$env.console.error(error);
+        // dialog({ message: error.message, type: 'error' });
       }
     },
 
