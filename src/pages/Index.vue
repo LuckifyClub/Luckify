@@ -87,23 +87,23 @@
                 <div class="text-h3 text-white">#2</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="q-ma-none q-pa-none text-bold text-white" :class="od('text-h2') + om('text-h3 text-center')">150 ETH</div>
-                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$210.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$240.000</div>
               </div>
               <div class="column flex-center rounded-borders bg-luck q-py-xl" :class="od('q-px-md q-ma-sm') + om('q-mx-sm')">
                 <div class="text-h3 text-white">#1</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="q-ma-none q-pa-none text-bold text-white" :class="od('text-h2') + om('text-h3 text-center')">250 ETH</div>
-                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$350.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$400.000</div>
               </div>
               <div class="column flex-center rounded-borders bg-luck q-py-xs" :class="od('q-px-md q-ma-sm') + om('')">
                 <div class="text-h3 text-white">#3</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="q-ma-none q-pa-none text-bold text-white" :class="od('text-h2') + om('text-h3 text-center')">100 ETH</div>
-                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$140.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$160.000</div>
               </div>
             </div>
-            <div class="extra text-center bg-primary text-white q-pa-md text-body2 rounded-borders q-mb-md q-mx-sm">
-              In addition, <b>200 participants</b> will receive prizes worth 0.75 ETH (~$1000).
+            <div class="extra text-center bg-primary text-white q-pa-md text-h5 rounded-borders q-mb-md q-mx-sm">
+              In addition, <b>200 participants</b> will receive prizes worth 1 ETH (~$1600).
             </div>
             <div class="text-center q-mx-sm">
               * Prizes will be awarded in percentage of tickets sold. The prizes shown are only eligible if all tickets are sold.
