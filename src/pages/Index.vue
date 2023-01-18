@@ -24,7 +24,7 @@
 
           <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none') + om('text-h3 q-mx-md')">When do we start to win?</h2>
           <div class="text-black">
-            <p class="text-black text-center"><strong>Ticket on-sale date:</strong> February 01, 2023 20:00:00 UTC</p>
+            <p class="text-black text-center text-body1"><strong>Ticket on-sale date:</strong> February 15, 2023, WED 20:00:00 UTC</p>
             <p class="text-black text-center">The first draw will take place <b>one week</b> after the sale starts.</p>
           </div>
           <countdown />
