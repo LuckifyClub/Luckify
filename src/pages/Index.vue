@@ -152,8 +152,8 @@
       <div class="full-width bg-primary text-secondary text-center text-h2 q-py-xl q-mt-xl text-bold">
         <div>May the luck be with you!</div>
         <div class="smicons">
-          <a href="https://t.me/luckifyclub"><img src="~assets/sm-telegram.svg" alt="LUCKIFY Telegram"></a>
-          <a href=" https://twitter.com/luckifyclub"><img src="~assets/sm-twitter.svg" alt="LUCKIFY Twitter"></a>
+          <a href="https://t.me/luckifyclub" target="_blank"><img src="~assets/sm-telegram.svg" alt="LUCKIFY Telegram"></a>
+          <a href=" https://twitter.com/luckifyclub" target="_blank"><img src="~assets/sm-twitter.svg" alt="LUCKIFY Twitter"></a>
         </div>
       </div>
     </div>
