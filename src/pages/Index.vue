@@ -149,7 +149,13 @@
         </div>
       </div>
 
-      <div class="full-width bg-primary text-secondary text-center text-h2 q-py-xl q-mt-xl text-bold">May the luck be with you!</div>
+      <div class="full-width bg-primary text-secondary text-center text-h2 q-py-xl q-mt-xl text-bold">
+        <div>May the luck be with you!</div>
+        <div class="smicons">
+          <a href="https://t.me/luckifyclub"><img src="~assets/sm-telegram.svg" alt="LUCKIFY Telegram"></a>
+          <a href=" https://twitter.com/luckifyclub"><img src="~assets/sm-twitter.svg" alt="LUCKIFY Twitter"></a>
+        </div>
+      </div>
     </div>
   </q-page>
 </template>
@@ -491,6 +497,9 @@ h1 {
   max-height: 50vh;
   max-width: 90vw;
 }
+.smicons a {margin: 8px; }
+.smicons a img {max-height: 55px; border-radius: 5px; padding: 8px; transition: all .5s ease; }
+.smicons a:hover img {background: #202d23;}
 
 /* .logo {width: 100%; background: url('~assets/green-bg.svg') no-repeat;} */
 
