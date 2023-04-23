@@ -24,7 +24,7 @@
 
           <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none') + om('text-h3 q-mx-md')">When do we start to win?</h2>
           <div class="text-black">
-            <p class="text-black text-center"><strong>Ticket on-sale date:</strong> February 01, 2023 20:00:00 UTC</p>
+            <p class="text-black text-center text-body1"><strong>Ticket on-sale date:</strong> February 15, 2023, WED 20:00:00 UTC</p>
             <p class="text-black text-center">The first draw will take place <b>one week</b> after the sale starts.</p>
           </div>
           <countdown />
@@ -87,23 +87,23 @@
                 <div class="text-h3 text-white">#2</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="q-ma-none q-pa-none text-bold text-white" :class="od('text-h2') + om('text-h3 text-center')">150 ETH</div>
-                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$210.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$240.000</div>
               </div>
               <div class="column flex-center rounded-borders bg-luck q-py-xl" :class="od('q-px-md q-ma-sm') + om('q-mx-sm')">
                 <div class="text-h3 text-white">#1</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="q-ma-none q-pa-none text-bold text-white" :class="od('text-h2') + om('text-h3 text-center')">250 ETH</div>
-                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$350.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$400.000</div>
               </div>
               <div class="column flex-center rounded-borders bg-luck q-py-xs" :class="od('q-px-md q-ma-sm') + om('')">
                 <div class="text-h3 text-white">#3</div>
                 <div class="text-body1 q-ma-none q-pa-none text-white">Prize</div>
                 <div class="q-ma-none q-pa-none text-bold text-white" :class="od('text-h2') + om('text-h3 text-center')">100 ETH</div>
-                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$140.000</div>
+                <div class="text-body2 q-ma-none q-pa-none text-bold text-white">~$160.000</div>
               </div>
             </div>
-            <div class="extra text-center bg-primary text-white q-pa-md text-body2 rounded-borders q-mb-md q-mx-sm">
-              In addition, <b>200 participants</b> will receive prizes worth 0.75 ETH (~$1000).
+            <div class="extra text-center bg-primary text-white q-pa-md text-h5 rounded-borders q-mb-md q-mx-sm">
+              In addition, <b>200 participants</b> will receive prizes worth 1 ETH (~$1600).
             </div>
             <div class="text-center q-mx-sm">
               * Prizes will be awarded in percentage of tickets sold. The prizes shown are only eligible if all tickets are sold.
@@ -149,7 +149,13 @@
         </div>
       </div>
 
-      <div class="full-width bg-primary text-secondary text-center text-h2 q-py-xl q-mt-xl text-bold">May the luck be with you!</div>
+      <div class="full-width bg-primary text-secondary text-center text-h2 q-py-xl q-mt-xl text-bold">
+        <div>May the luck be with you!</div>
+        <div class="smicons">
+          <a href="https://t.me/luckifyclub" target="_blank"><img src="~assets/sm-telegram.svg" alt="LUCKIFY Telegram"></a>
+          <a href=" https://twitter.com/luckifyclub" target="_blank"><img src="~assets/sm-twitter.svg" alt="LUCKIFY Twitter"></a>
+        </div>
+      </div>
     </div>
   </q-page>
 </template>
@@ -491,6 +497,9 @@ h1 {
   max-height: 50vh;
   max-width: 90vw;
 }
+.smicons a {margin: 8px; }
+.smicons a img {max-height: 55px; border-radius: 5px; padding: 8px; transition: all .5s ease; }
+.smicons a:hover img {background: #202d23;}
 
 /* .logo {width: 100%; background: url('~assets/green-bg.svg') no-repeat;} */
 
