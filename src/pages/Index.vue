@@ -294,7 +294,7 @@ export default {
           await tx.wait();
           dialog({ message: 'Congrats!!! You have a ticket!!!', type: 'success' });
         } catch (error) {
-          dialog({ message: error.message, type: 'error' });
+          dialog({ message: error?.reason || error.message, type: 'error' });
           return new Error(error);
         }
       } catch (error) {
