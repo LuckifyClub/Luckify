@@ -264,10 +264,10 @@ export default {
     async GET_TICKET_CLICK() {
       this.$env.console.log('GET_TICKET_CLICK');
 
-      let network = await this.provider.getNetwork();
-      let { chainId, name } = network;
+      const network = await this.provider.getNetwork();
+      const { chainId, name } = network;
 
-      console.log('[NERWORK]:', chainId, name);
+      this.$env.console.log('[NERWORK]:', chainId, name);
 
       if (name !== 'goerli') {
         try {
