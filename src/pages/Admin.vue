@@ -41,8 +41,8 @@ export default {
     };
   },
 
-  mounted () {
-    console.log("web3:", web3)
+  mounted() {
+    console.log('web3:', web3);
   },
 
   methods: {
@@ -66,7 +66,7 @@ export default {
 
       const ticket_price_wei = Web3.utils.toWei(ticket_price, 'ether');
 
-      const payload = `${id}, "${title}", "${image}", ["${ticket_count}", "${ticket_price_wei}"]`;
+      const payload = `${id}, "${title}", "${image}", ["${ticket_count}", "${ticket_price_wei}"], ["${start_date}", "${end_date}"], [${award_ratio_list}], [${payoff_count}, ${payoff_ratio}], [${marketing_ratios}], [${marketing_addresses}]`;
 
       this.$env.console.log(payload);
     },
