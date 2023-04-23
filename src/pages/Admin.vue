@@ -1,5 +1,7 @@
 <template>
   <q-page class="q-pa-lg">
+    <MyConnectButton />
+    <q-btn outline v-if="account" color="primary" @click="CREATE_INSTANCE">CREATE INSTANCE</q-btn>
     <q-input v-model="info.id" label="id" />
     <q-input v-model="info.title" label="title" />
     <q-input v-model="info.image" label="image" />
@@ -12,16 +14,29 @@
     <q-input v-model="info.payoff_ratio" label="payoff ratio" />
     <q-input v-model="info.marketing_ratios" label="marketing ratio list (comma seperated)" />
     <q-input v-model="info.marketing_addresses" label="marketing addresses (comma seperated)" />
-    <q-btn @click="CREATE_INSTANCE">CREATE INSTANCE</q-btn>
   </q-page>
 </template>
 
 <script>
-import Web3 from 'web3';
+import { mapState, mapGetters } from 'vuex';
 
-import { GAME_ABI, CONTRACT_ADDRESS, CURRENT_RPC } from 'src/misc/globals.js';
+import Web3 from 'web3';
+import { Network, Alchemy } from 'alchemy-sdk';
+
+import { GAME_ABI, CONTRACT_ADDRESS, CURRENT_RPC, RPC } from 'src/misc/globals.js';
+import MyConnectButton from 'src/components/MyConnectButton.vue';
+
+const settings = {
+  apiKey: 'ho65Z1zi5RxU5BNBTMRvj-bz0JuIibYp',
+  network: Network.ETH_SEPOLIA,
+};
+
+const alchemy = new Alchemy(settings);
+
+const latestBlock = alchemy.core.getBlockNumber();
 
 export default {
+  components: { MyConnectButton },
   name: 'Admin',
 
   data() {
@@ -41,6 +56,11 @@ export default {
         marketing_addresses: '0x4b8F3c2e26F057732bD5df4F07C33b001d82E40D, 0x1719fF78022C747FC6eD6ab8F7ce788b7a9c73E6',
       },
     };
+  },
+
+  computed: {
+    ...mapState('app', ['web3', 'account', 'balance']),
+    ...mapGetters('app', ['getProvider']),
   },
 
   methods: {

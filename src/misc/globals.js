@@ -77,3 +77,5 @@ export const CONTRACT_ADDRESS = ENV === 'MAIN' ? '???' : '0xcc326108eBfb3cceCb8b
 export const GAME_ABI = require('src/assets/ABIs/Luckify.json');
 
 console.log(GAME_ABI);
+
+export const RPC = ENV === 'MAIN' ? '???' : 'https://eth-sepolia.g.alchemy.com/v2/ho65Z1zi5RxU5BNBTMRvj-bz0JuIibYp';
