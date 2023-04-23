@@ -19,6 +19,8 @@
 <script>
 import Web3 from 'web3';
 
+import { GAME_ABI, CONTRACT_ADDRESS, CURRENT_RPC } from 'src/misc/globals.js';
+
 export default {
   name: 'Admin',
 
