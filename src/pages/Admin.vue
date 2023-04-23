@@ -41,10 +41,6 @@ export default {
     };
   },
 
-  mounted() {
-    console.log('web3:', web3);
-  },
-
   methods: {
     CREATE_INSTANCE() {
       this.$env.console.log('[CREATE_INSTANCE]:');
