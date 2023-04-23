@@ -19,6 +19,8 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
+import { dialog } from 'src/misc/dialog';
+import { ethers } from 'ethers';
 
 import Web3 from 'web3';
 import { Network, Alchemy } from 'alchemy-sdk';
@@ -65,7 +67,7 @@ export default {
   },
 
   methods: {
-    CREATE_INSTANCE() {
+    async CREATE_INSTANCE() {
       this.$env.console.log('[CREATE_INSTANCE]:');
 
       const {
@@ -85,9 +87,63 @@ export default {
 
       const ticket_price_wei = Web3.utils.toWei(ticket_price, 'ether');
 
-      const payload = `${id}, "${title}", "${image}", ["${ticket_count}", "${ticket_price_wei}"], ["${start_date}", "${end_date}"], [${award_ratio_list}], [${payoff_count}, ${payoff_ratio}], [${marketing_ratios}], [${marketing_addresses}]`;
+      // eslint-disable-next-line max-len
+      // const payload = `${id}, "${title}", "${image}", ["${ticket_count}", "${ticket_price_wei}"], ["${start_date}", "${end_date}"], [${award_ratio_list}], [${payoff_count}, ${payoff_ratio}], [${marketing_ratios}], [${marketing_addresses}]`;
+
+      const payload = {
+        _id: id,
+        _title: title,
+        _image: image,
+        _ticket_count_price: [ticket_count, ticket_price_wei],
+        _start_end_date: [start_date, end_date],
+        _award_ratio_list: award_ratio_list.split(',').map((e) => parseInt(e, 10)),
+        _payoff_count_ratio: [payoff_count, payoff_ratio],
+        _marketing_ratios: marketing_ratios.split(',').map((e) => parseInt(e, 10)),
+        _marketing_addresses: marketing_addresses.split(',').map((e) => e.trim()),
+      };
 
       this.$env.console.log(payload);
+
+      const network = await this.getProvider.getNetwork();
+      const { chainId, name } = network;
+
+      this.$env.console.log('[NERWORK]:', chainId, name);
+
+      if (name !== 'sepolia') {
+        try {
+          await this.SWITCH_NETWORK();
+          // const accounts = await this.provider.send('eth_requestAccounts', []);
+          // await this.SET_ACCOUNT(accounts);
+          // network = await this.provider.getNetwork();
+          // ({ chainId, name } = network);
+        } catch (error) {
+          return new Error(error);
+        }
+      }
+
+      const signer = this.getProvider.getSigner();
+      try {
+        const contract = new ethers.Contract(CONTRACT_ADDRESS, GAME_ABI.abi, signer);
+
+        this.$env.console.log('contract:', contract);
+
+        // Call payable function
+        // const amount = ethers.utils.parseEther('0.01');
+
+        try {
+          const tx = await contract.functions.createInstance(...Object.values(payload));
+          await tx.wait();
+          dialog({ message: 'Congrats!!! Game Created Successfuly!!!', type: 'success' });
+        } catch (error) {
+          this.$env.console.error(error);
+          dialog({ message: error.reason || error.message, type: 'error' });
+          return new Error(error);
+        }
+      } catch (error) {
+        // this.$env.console.error(error);
+        // dialog({ message: error.message, type: 'error' });
+        return new Error(error);
+      }
     },
   },
 };
