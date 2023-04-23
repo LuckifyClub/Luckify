@@ -2,7 +2,7 @@
   <q-page class="q-pa-lg">
     <MyConnectButton />
 
-    <game-card v-for="i in 4" :key="i" :info="info"> </game-card>
+    <game-card v-for="info in games" :key="info.id" :info="info"> </game-card>
 
     <!-- <q-btn outline v-if="account" color="primary" @click="CREATE_INSTANCE">CREATE INSTANCE</q-btn>
     <q-input v-model="info.id" label="id" />
@@ -48,6 +48,8 @@ export default {
 
   data() {
     return {
+      games: [],
+
       info: {
         id: '3',
         title: 'Deneme3',
@@ -70,8 +72,15 @@ export default {
     ...mapGetters('app', ['getProvider']),
   },
 
-  mounted() {
-    this.GET_INSTANCE(1);
+  async mounted() {
+    for (let i = 0; i < 100; i++) {
+      try {
+        const game = await this.GET_INSTANCE(i + 1);
+        this.games.push(game);
+      } catch (error) {
+        break;
+      }
+    }
   },
 
   methods: {
@@ -84,7 +93,29 @@ export default {
       this.$env.console.log(result);
       this.$env.console.log(result.toString());
 
-      this.info = result;
+      try {
+        // eslint-disable-next-line no-underscore-dangle
+        const _info = {
+          id: Web3.utils.toNumber(result.id),
+          title: result.title,
+          image: result.image,
+          ticket_count: Web3.utils.toDecimal(result.ticket_count_price[0]),
+          ticket_price: Web3.utils.fromWei(Web3.utils.hexToNumberString(Web3.utils.toHex(result.ticket_count_price[1])), 'ether'),
+          start_date: Web3.utils.toDecimal(result.start_end_date[0]),
+          end_date: Web3.utils.toDecimal(result.start_end_date[1]),
+          award_ratio_list: result.award_ratio_list.map((e) => Web3.utils.toDecimal(e)),
+          payoff_count: Web3.utils.toDecimal(result.payoff_count_ratio[0]),
+          payoff_ratio: Web3.utils.toDecimal(result.payoff_count_ratio[1]),
+          marketing_ratios: result.marketing_ratios.map((e) => Web3.utils.toDecimal(e)),
+          marketing_addresses: result.marketing_addresses,
+        };
+
+        this.$env.console.log(_info);
+
+        return _info;
+      } catch (error) {
+        return Promise.error(error);
+      }
     },
 
     async CREATE_INSTANCE() {
