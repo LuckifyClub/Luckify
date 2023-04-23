@@ -11,6 +11,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex';
 import { dialog } from 'src/misc/dialog';
+import { ethers } from 'ethers';
 
 export default {
   name: 'MyConnectButton',

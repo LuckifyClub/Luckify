@@ -24,6 +24,7 @@ import Web3 from 'web3';
 import { Network, Alchemy } from 'alchemy-sdk';
 
 import { GAME_ABI, CONTRACT_ADDRESS, CURRENT_RPC, RPC } from 'src/misc/globals.js';
+
 import MyConnectButton from 'src/components/MyConnectButton.vue';
 
 const settings = {
@@ -33,7 +34,7 @@ const settings = {
 
 const alchemy = new Alchemy(settings);
 
-const latestBlock = alchemy.core.getBlockNumber();
+// const latestBlock = alchemy.core.getBlockNumber();
 
 export default {
   components: { MyConnectButton },
