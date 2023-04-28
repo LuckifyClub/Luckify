@@ -2,14 +2,14 @@
   <q-page class="aller">
     <div id="app" ref="container" class="luckpad" :class="om('full-width')">
       <div class="flex column items-center full-width ">
-        <div class="connector  q-ma-md z-max" :class="od('absolute-right') + om ('absolute-center-top')">
+        <!-- <div class="connector  q-ma-md z-max" :class="od('absolute-right') + om ('absolute-center-top')">
           <div v-if="web3">
             <q-btn class="q-ml-sm" v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
             <q-btn class="q-ml-sm" v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
             <q-btn class="q-ml-sm" v-if="account" color="primary" @click="GET_TICKET_CLICK">Get Ticket</q-btn>
           </div>
           <div v-else class="bg-red">No web3 detected. Please install https://metamask.io/</div>
-        </div>
+        </div> -->
 
         <div class="container flex full-width items-start justify-start " :class="od('row') + om ('column')">
           <div class="logo-group flex justify-center items-center " :class="od('column q-px-xl col-3') + om ('column q-px-sm wrap full-width')">
