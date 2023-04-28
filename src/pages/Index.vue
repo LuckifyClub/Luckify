@@ -48,7 +48,7 @@
                       <img alt="lottofy logo" src="~assets/lottofy-logo.svg" class="game-logo q-ma-sm" />
                       <div class="game-info column items-center text-body1 text-center">
                         <span><b>Fully trusted blockchain-based lottery.</b></span>
-                        <span>3 separate tiers, ticket fees starting from 0.005 ETH and prizes up to 10 ETH!</span>
+                        <span>3 separate tiers, ticket fees starting from 0.005 ETH and prizes up to 40 ETH!</span>
                         <span><b>Details coming soon.</b></span>
                       </div>
                     </div>
@@ -558,7 +558,7 @@ h1 {
 
 }
 
-.logo-group {position: sticky; top: 0; height: 90vh; backdrop-filter: blur(1px);}
+.logo-group {position: sticky; top: 0; height: 90vh; backdrop-filter: blur(1px); flex-wrap: nowrap;}
 .info {
   max-width: 400px;
   margin: 2vh auto 1vh auto;
