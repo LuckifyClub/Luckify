@@ -2,18 +2,18 @@
   <q-page class="aller">
     <div id="app" ref="container" class="luckpad" :class="om('full-width')">
       <div class="flex column items-center full-width ">
-        <div class="connector absolute-right q-ma-md">
+        <div class="connector  q-ma-md z-max" :class="od('absolute-right') + om ('absolute-center-top')">
           <div v-if="web3">
-            <q-btn v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
-            <q-btn v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
-            <q-btn v-if="account" color="primary" @click="GET_TICKET_CLICK">Get Ticket</q-btn>
+            <q-btn class="q-ml-sm" v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
+            <q-btn class="q-ml-sm" v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
+            <q-btn class="q-ml-sm" v-if="account" color="primary" @click="GET_TICKET_CLICK">Get Ticket</q-btn>
           </div>
           <div v-else class="bg-red">No web3 detected. Please install https://metamask.io/</div>
         </div>
 
-        <div class="container flex full-width items-start justify-start row">
-          <div class="logo-group flex column justify-center items-center q-px-xl col-3">
-            <img alt="luckify logo" src="~assets/luckify-logo.svg" class="logoimg z-max q-my-xl" @click="CONNECT_CLICK" />
+        <div class="container flex full-width items-start justify-start " :class="od('row') + om ('column')">
+          <div class="logo-group flex justify-center items-center " :class="od('column q-px-xl col-3') + om ('column q-px-sm wrap full-width')">
+            <img alt="luckify logo" src="~assets/luckify-logo.svg" class="logoimg z-max q-my-xl" :class="od('') + om ('full-width')" @click="CONNECT_CLICK" />
             <div class="smicons bg-primary flex items-center">
               <a href="https://t.me/luckifyclub" target="_blank"><img src="~assets/sm-telegram.svg"
                   alt="LUCKIFY Telegram"></a>
@@ -39,32 +39,65 @@
             <div class="z-max column items-center" :class="om('q-my-none')">
 
               <div class="section column items-center full-width">
-                <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none') + om('text-h3 q-mx-md')">Our games
+                <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none q-mt-xl') + om('text-h3 q-mx-md')">Luckify games
                 </h2>
-                <div class="row full-width">
-                  <div class="col-4 column q-pa-xl items-center bg-green">1</div>
-                  <div class="col-4 column q-pa-xl items-center bg-blue">1</div>
-                  <div class="col-4 column q-pa-xl items-center bg-red">1</div>
+                <div class="games-intro row full-width " :class="od('q-pa-xl') + om('q-pa-none')">
+                  <div class=" column q-pa-xl items-center games-box lottofy" :class="od('col-4') + om('col-12')">
+                    <div class="bander">Our first game. Launching soon!</div>
+                    <div class="game-content">
+                      <img alt="lottofy logo" src="~assets/lottofy-logo.svg" class="game-logo q-ma-sm" />
+                      <div class="game-info column items-center text-body1 text-center">
+                        <span><b>Fully trusted blockchain-based lottery.</b></span>
+                        <span>3 separate tiers, ticket fees starting from 0.005 ETH and prizes up to 10 ETH!</span>
+                        <span><b>Details coming soon.</b></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column q-pa-xl items-center games-box bingofy" :class="od('col-4') + om('col-12')">
+                    <div class="bander">Soon!     Soon!     Soon!</div>
+                    <div class="game-content">
+                      <img alt="bingofy logo" src="~assets/bingofy-logo.svg" class="game-logo q-ma-sm" />
+                      <div class="game-info column items-center text-body1 text-center">
+                        <span><b>A brand new excitement on Blockchain!</b></span>
+                        <span>Get ready for an experience that will last for hours and create your own luck!</span>
+                        <span><b>Details coming soon.</b></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column q-pa-xl items-center games-box digify" :class="od('col-4') + om('col-12')">
+                    <div class="bander">Soon!     Soon!     Soon!</div>
+                    <div class="game-content">
+                      <img alt="digify logo" src="~assets/digify-logo.svg" class="game-logo q-ma-sm" />
+                      <div class="game-info column items-center text-body1 text-center">
+                        <span><b>There will be a unique and new way to win!</b></span>
+                        <span>We have designed another exciting and new game for you.</span>
+                        <span><b>Details coming soon.</b></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div class="section column items-center">
                 <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none') + om('text-h3 q-mx-md')">When do we
                   start to win?</h2>
-                <div class="text-black">
-                  <p class="text-black text-center text-body1"><strong>Ticket on-sale date:</strong> February 15, 2023,
-                    WED 20:00:00 UTC</p>
-                  <p class="text-black text-center">The first draw will take place <b>one week</b> after the sale starts.
-                  </p>
-                </div>
-                <countdown />
-                <div>
-                  <p class="text-h6 text-center text-black">
-                    The time has come to start winning big. <br />
-                    Are you ready to join the coolest lotteries in the game? <br />
-                    The countdown is on - let's make it happen!
-                  </p>
-                </div>
+                <!-- <div>
+                  <div class="text-black">
+                    <p class="text-black text-center text-body1"><strong>Ticket on-sale date:</strong> May 15, 2023,
+                      MON 20:00:00 UTC</p>
+                    <p class="text-black text-center">The first draw will take place <b>one week</b> after the sale starts.
+                    </p>
+                  </div>
+                  <countdown />
+                  <div>
+                    <p class="text-h6 text-center text-black">
+                      The time has come to start winning big. <br />
+                      Are you ready to join the coolest lotteries in the game? <br />
+                      The countdown is on - let's make it happen!
+                    </p>
+                  </div>
+                </div> -->
+                <div class="text-h6 text-center text-black ">The ticket sales date for the first game will be published on our social media accounts. Stay tuned!</div>
               </div>
               <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none q-mt-xl') + om('text-h3 q-mx-md')">What
                 is the difference?</h2>
@@ -100,7 +133,7 @@
                   </p>
                 </div>
               </div>
-              <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none q-mt-xl') + om('text-h3 q-mx-md')">
+              <!-- <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none q-mt-xl') + om('text-h3 q-mx-md')">
                 Participation details</h2>
               <div>
                 <div class="column flex-center text-h5" :class="od('q-pa-xl') + om('q-pa-sm')">
@@ -149,16 +182,16 @@
                   * Prizes will be awarded in percentage of tickets sold. The prizes shown are only eligible if all
                   tickets are sold.
                 </div>
-              </div>
+              </div> -->
             </div>
 
-            <div class="column full-width items-center">
+            <div class="column full-width items-center q-mb-xl">
               <img alt="Lucky Fish" src="~assets/LuckyFish2.png" class="q-ma-sm luckyfish " />
               <div class="text-body1 text-center">Meet LuckyFish. Follow him. He will bring you luck and opportunities!
               </div>
             </div>
 
-            <div class="column flex-center q-px-md q-mb-xl">
+            <!-- <div class="column flex-center q-px-md q-mb-xl">
               <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none q-mt-xl') + om('text-h3 q-mx-md')">Faq
               </h2>
               <div class="text-h5 text-bold q-mt-lg text-center">How does the lottery draw work?</div>
@@ -195,7 +228,7 @@
             <div class="text-body1 text-center text-black" :class="od('q-px-xl q-mx-xl')">
               The draw date of the next lottery is published on our page. Check again for any changes.
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -556,25 +589,41 @@ h1 {
     hsl(49deg 100% 50%) 100%
   );
 }
-.luckyfish {
-  width: 80%;
-  border-radius: 20px;
-}
+.luckyfish{width:40%;}
 .smicons {padding: 10px; border-radius: 20px;}
 .smicons a {margin: 8px; }
 .smicons a img {max-height: 55px; height: 55px; border-radius: 5px; padding: 8px; transition: all .5s ease; }
 .smicons a:hover img {background: #202d23;}
 
+.games-intro .games-box {display: flex; justify-content: center; align-items: center; height: 60vh;  overflow: hidden; position: relative; }
+.games-intro .games-box::before {content: ''; z-index: -1;  width:100%; height:100%; transition: all .6s ease-in-out; position: absolute; transform: scale(1); filter: blur(0px) contrast(1.3);}
+.games-intro .games-box:hover::before {transform: scale(1.5); filter: blur(5px) contrast(1);}
+.games-intro .games-box.lottofy::before {background:url('~assets/lottofy-art.png') no-repeat; background-size:cover; background-position:center center;}
+.games-intro .games-box.bingofy::before {background:url('~assets/bingofy-art.png') no-repeat; background-size: cover; background-position:center center;}
+.games-intro .games-box.digify::before {background:url('~assets/digify-art.png') no-repeat; background-size: cover; background-position:center center;}
+.games-intro .games-box .bander { width: 100%; position: absolute; top: 7%; transform: rotate(-6deg) scale(1.05); background: #ebfcef; color: #087c23; font-weight: 900; font-size: 1.22rem; padding: 1.4%; text-align: center;}
+.games-intro .games-box .game-logo {padding: 0 15%; }
+
+.games-intro .games-box .game-content {max-width: 70%; background: #00000000; transition: all .8s ease-out; padding: 5%; border-radius: 1rem; position: absolute; bottom: 5%;}
+.games-intro .games-box .game-content .game-info { transition: all .8s ease-out; opacity: 0; margin-top: -150px; flex-wrap: nowrap;   }
+.games-intro .games-box:hover .game-content { background: #ebfcef;  }
+.games-intro .games-box:hover .game-content .game-info { opacity: 1; margin-top: 20px; }
+
 /* .logo {width: 100%; background: url('~assets/green-bg.svg') no-repeat;} */
 
 @media (max-width: 600px) {
-  .centrik {
-    margin-top: 0vh;
-  }
-  h1 {
-    width: 940px;
-    max-width: 86vw;
-    margin-top: 0;
-  }
+
+
+ .luckpad{width:100vw;height:100vh;border:none;border-radius:0;overflow:overlay;}
+  .logo-group {position: relative; height: unset;}
+ .games-intro .games-box .game-content{bottom:10%; text-align: center;}
+ .games-intro .games-box .game-logo {max-height:6vh;}
+
+
+  .centrik{margin-top:0vh;}
+
+  h1{width:940px;max-width:86vw;margin-top:0;}
+  .luckyfish{width:70%;}
+
 }
 </style>
