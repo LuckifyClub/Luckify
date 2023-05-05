@@ -1,19 +1,21 @@
 <template>
   <q-page class="aller">
-    <div id="app" ref="container" class="luckpad" :class="om('full-width')">
-      <div class="flex column items-center full-width ">
-        <!-- <div class="connector  q-ma-md z-max" :class="od('absolute-right') + om ('absolute-center-top')">
+    <div class="connector q-ma-md z-max" :class="od('absolute-right') + om ('absolute-center-top')">
           <div v-if="web3">
             <q-btn class="q-ml-sm" v-if="!account" :disable="!provider" @click="CONNECT_CLICK" color="primary">Connect</q-btn>
             <q-btn class="q-ml-sm" v-if="account" color="primary">{{ maskWalletAddress(account) }}</q-btn>
             <q-btn class="q-ml-sm" v-if="account" color="primary" @click="GET_TICKET_CLICK">Get Ticket</q-btn>
           </div>
           <div v-else class="bg-red">No web3 detected. Please install https://metamask.io/</div>
-        </div> -->
+      </div>
+
+    <div id="app" ref="container" class="luckpad" :class="om('full-width')">
+
+      <div class="flex column items-center full-width ">
 
         <div class="container flex full-width items-start justify-start " :class="od('row') + om ('column')">
           <div class="logo-group flex justify-center items-center " :class="od('column q-px-xl col-3') + om ('column q-px-sm wrap full-width')">
-            <img alt="luckify logo" src="~assets/luckify-logo.svg" class="logoimg z-max q-my-xl" :class="od('') + om ('full-width')" @click="CONNECT_CLICK" />
+            <img alt="luckify logo" src="~assets/luckify-logo.svg" class="logoimg z-max q-my-xl" :class="od('') + om ('full-width')" />
             <div class="smicons bg-primary flex items-center">
               <a href="https://t.me/luckifyclub" target="_blank"><img src="~assets/sm-telegram.svg"
                   alt="LUCKIFY Telegram"></a>
@@ -42,10 +44,10 @@
                 <h2 class="fan q-pa-none text-center" :class="od('text-h1 q-ma-none q-mt-xl') + om('text-h3 q-mx-md')">Luckify games
                 </h2>
                 <div class="games-intro row full-width " :class="od('q-pa-xl') + om('q-pa-none')">
-                  <div class=" column q-pa-xl items-center games-box lottofy" :class="od('col-4') + om('col-12')">
+                  <div class="column q-pa-xl items-center games-box lottofy" :class="od('col-4') + om('col-12')">
                     <div class="bander">Our first game. Launching soon!</div>
                     <div class="game-content">
-                      <img alt="lottofy logo" src="~assets/lottofy-logo.svg" class="game-logo q-ma-sm" />
+                      
                       <div class="game-info column items-center text-body1 text-center">
                         <span><b>Fully trusted blockchain-based lottery.</b></span>
                         <span>3 separate tiers, ticket fees starting from 0.005 ETH and prizes up to 40 ETH!</span>
@@ -229,6 +231,7 @@
               The draw date of the next lottery is published on our page. Check again for any changes.
             </div>
           </div> -->
+        
         </div>
       </div>
 
