@@ -46,8 +46,9 @@
                 <div class="games-intro row full-width " :class="od('q-pa-xl') + om('q-pa-none')">
                   <div class="column q-pa-xl items-center games-box lottofy" :class="od('col-4') + om('col-12')">
                     <div class="bander">Our first game. Launching soon!</div>
+
                     <div class="game-content">
-                      
+                      <img alt="lottofy logo" src="~assets/lottofy-logo.svg" class="game-logo q-ma-sm" />
                       <div class="game-info column items-center text-body1 text-center">
                         <span><b>Fully trusted blockchain-based lottery.</b></span>
                         <span>3 separate tiers, ticket fees starting from 0.005 ETH and prizes up to 40 ETH!</span>
@@ -56,7 +57,7 @@
                     </div>
                   </div>
                   <div class="column q-pa-xl items-center games-box bingofy" :class="od('col-4') + om('col-12')">
-                    <div class="bander">Soon!     Soon!     Soon!</div>
+                    <div class="bander">Soon!  *   Soon!  *   Soon!</div>
                     <div class="game-content">
                       <img alt="bingofy logo" src="~assets/bingofy-logo.svg" class="game-logo q-ma-sm" />
                       <div class="game-info column items-center text-body1 text-center">
@@ -67,7 +68,7 @@
                     </div>
                   </div>
                   <div class="column q-pa-xl items-center games-box digify" :class="od('col-4') + om('col-12')">
-                    <div class="bander">Soon!     Soon!     Soon!</div>
+                    <div class="bander">Soon!  *   Soon!  *   Soon!</div>
                     <div class="game-content">
                       <img alt="digify logo" src="~assets/digify-logo.svg" class="game-logo q-ma-sm" />
                       <div class="game-info column items-center text-body1 text-center">
